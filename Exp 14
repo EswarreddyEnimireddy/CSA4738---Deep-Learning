@@ -66,20 +66,20 @@ def main():
     Y_pred = weight * X_normalized + bias
 
     # -----------------------------
-    # ✅ Plot 1: Cost vs Iterations
+    # ✅ Combined Plot (One Screen)
     # -----------------------------
-    plt.figure(figsize=(8,6))
+    plt.figure(figsize=(12,5))
+
+    # Plot 1: Cost vs Iterations
+    plt.subplot(1, 2, 1)
     plt.plot(range(len(costs)), costs, 'r.')
     plt.title("Cost vs Iterations")
     plt.xlabel("Iterations")
     plt.ylabel("Cost")
     plt.grid()
-    plt.show()
 
-    # -----------------------------
-    # ✅ Plot 2: Linear Regression
-    # -----------------------------
-    plt.figure(figsize=(8,6))
+    # Plot 2: Linear Regression
+    plt.subplot(1, 2, 2)
     plt.scatter(X, Y, color='black', marker='*', label='Data Points')
     plt.plot(X, Y_pred, color='red', linestyle='--', label='Fitted Line')
     plt.title("Linear Regression using Gradient Descent")
@@ -87,8 +87,11 @@ def main():
     plt.ylabel("Y")
     plt.legend()
     plt.grid()
+
+    plt.tight_layout()
     plt.show()
 
 
 if __name__ == "__main__":
     main()
+
